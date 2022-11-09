@@ -4,14 +4,31 @@
   box-sizing: border-box;
 }
 
+/*Estilos navbar*/
 .color_navbar {
   background-color: #00b7fa;
 }
 
+/*Estilos generales*/
 body {
   background-color: #e3f2fd;
 }
 
+/*Estilos de las cards*/
 .color-card {
   background-color: #e4fff9;
+}
+
+/*Estilos del footer*/
+
+.foot {
+  background-color: #00b7fa;
+}
+
+.foot .texto {
+  color: black;
+}
+
+.foot .textoa {
+  color: black;
 }
