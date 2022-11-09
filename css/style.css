@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.color_navbar {
+  background-color: #00b7fa;
+}
+
+body {
+  background-color: #e3f2fd;
+}
+
+.color-card {
+  background-color: #e4fff9;
+}
