@@ -1,5 +1,6 @@
 /* Creamos el carrito y el inventario disponible */
-const carrito = [];
+const contenedor = document.querySelector("#lista-carrito tbody");
+let carrito = [];
 let inventario = [];
 let contadorCarro = 0;
 
@@ -50,6 +51,23 @@ const productoCarritoHTML = (item) => {
           </div>`;
 };
 
+/* Funcion para mostrar tabla del carrito*/
+const carroSuperiorHTML = (item) => {
+  return `
+  <tbody id="cuerpo-tabla"></tbody>
+    <tr>
+      <th></th>
+      <th><img src="/assets/images/${item.tipo}.png" class="card-img-top" alt="..." /></th>
+      <th>${item.tipo}</th>
+      <th>${item.marca}</th>
+      <th>${item.modelo}</th>
+      <th>${item.precio}</th>
+      <th>${item.cantidad}</th>
+      <th><button id="btn-carritoSup-${item.idCompra}" class="btn btn-danger">X</button></th>
+      <th></th>
+    </tr>`;
+};
+
 /* Funcion que nos permite mostrar todos los producots */
 const mostrarCatalogo = () => {
   let tarjetaCatalogo = document.getElementById("catalogo");
@@ -65,15 +83,18 @@ const mostrarCatalogo = () => {
 
 /* Funcion para mostrar elementos en el carro */
 const mostrarCarrito = () => {
+  let carroSup = document.getElementById("cuerpo-tabla");
   let cardCarro = document.getElementById("carrito");
   let precioCarro = document.getElementById("precioTotal");
   let carroHTML = "";
+  let carroSupHTML = "";
   let precioFinal = 0;
   for (let item of carrito) {
     carroHTML += productoCarritoHTML(item);
+    carroSupHTML += carroSuperiorHTML(item);
     precioFinal = precioFinal + item.precio * item.cantidad;
   }
-
+  carroSup.innerHTML = carroSupHTML;
   precioCarro.innerHTML = precioFinal;
   cardCarro.innerHTML = carroHTML;
   botonesCarrito();
@@ -107,14 +128,23 @@ const botonesCatalogo = () => {
 /* Funcion para agregar listener a los botones de quitar del carro */
 const botonesCarrito = () => {
   for (let item of carrito) {
+    let idBtnCarritoSup = `btn-carritoSup-${item.idCompra}`;
     let idBtnCarro = `btn-carrito-${item.idCompra}`;
     let cardBotonCarro = document.getElementById(idBtnCarro);
+    let botonX = document.getElementById(idBtnCarritoSup);
 
     cardBotonCarro.addEventListener("click", () => {
       let indice = carrito.findIndex(
         (param) => param.idCompra == item.idCompra
       );
       carrito.splice(indice, 1);
+      mostrarCarrito();
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+    });
+
+    botonX.addEventListener("click", () => {
+      let ind = carrito.findIndex((p) => p.idCompra == item.idCompra);
+      carrito.splice(ind, 1);
       mostrarCarrito();
       localStorage.setItem("carrito", JSON.stringify(carrito));
     });
@@ -151,7 +181,23 @@ const botonRestarCant = () => {
   }
 };
 
-/* Ejecucion del programa */
-mostrarCatalogo();
+function borrarItem(e) {
+  var element = e.target;
+  element.parentNode.removeChild(element);
+  carritoCompras = carritoCompras.filter(
+    (e) => e.id != element.getAttribute("data-id")
+  );
+  mostrarCarrito();
+}
 
-console.log(productoCatalogoHTML(inventario[0]));
+/* Funcion que carga datos del local storage si los hay*/
+function cargarLocalCarrito() {
+  document.addEventListener("DOMContentLoaded", () => {
+    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    mostrarCarrito();
+  });
+}
+
+/* Ejecucion del programa */
+cargarLocalCarrito();
+mostrarCatalogo();

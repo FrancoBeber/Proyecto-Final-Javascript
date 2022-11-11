@@ -32,3 +32,29 @@ body {
 .foot .textoa {
   color: black;
 }
+
+/* Estilos carrito nav*/
+ul {
+  list-style: none;
+}
+
+.submenu {
+  position: relative;
+}
+
+.submenu #carritoMenu {
+  display: none;
+}
+
+.submenu:hover #carritoMenu {
+  display: block;
+  position: absolute;
+  right: 0;
+
+  top: 100%;
+  z-index: 1;
+  background-color: #e4fff9;
+  padding: 20px;
+  min-height: 400px;
+  min-width: 300px;
+}
