@@ -2,9 +2,11 @@
 const contenedor = document.querySelector("#lista-carrito tbody");
 let carrito = [];
 let inventario = [];
+let producto = [];
 let contadorCarro = 0;
 
 /* Agregamos objetos al inventario */
+/*
 inventario.push(new Item("1", "Monitor", "Samsung", "Modelo1", 57000, 1));
 inventario.push(new Item("2", "Monitor", "Samsung", "Modelo1", 57000, 1));
 inventario.push(new Item("3", "Monitor", "Samsung", "Modelo1", 57000, 1));
@@ -13,10 +15,16 @@ inventario.push(new Item("5", "Monitor", "Samsung", "Modelo1", 57000, 1));
 inventario.push(new Item("6", "Monitor", "Samsung", "Modelo1", 57000, 1));
 inventario.push(new Item("7", "Monitor", "Samsung", "Modelo1", 57000, 1));
 inventario.push(new Item("8", "Monitor", "Samsung", "Modelo1", 57000, 1));
+*/
 
-/* Creamos las cards con los datos del inventario */
-const productoCatalogoHTML = (item) => {
-  return `
+fetch("api/catalogo.json")
+  .then((res) => res.json())
+  .then((data) => {
+    inventario = data[0].inventario;
+    for (let item of inventario) {
+      /* Creamos las cards con los datos del inventario */
+      const productoCatalogoHTML = (item) => {
+        return `
     <div class="col col-xl-3 col-md-6 col-sm-12 py-5">
             <div class="card color-card" style="width: 18rem">
               <img src="/assets/images/${item.tipo}.png" class="card-img-top" alt="..." />
@@ -29,26 +37,43 @@ const productoCatalogoHTML = (item) => {
               </div>
             </div>
           </div>`;
-};
+      };
+
+      /* Funcion que nos permite mostrar todos los producots */
+      const mostrarCatalogo = () => {
+        let tarjetaCatalogo = document.getElementById("catalogo");
+        let catalogoHTML = "";
+
+        for (let item of inventario) {
+          catalogoHTML += productoCatalogoHTML(item);
+        }
+
+        tarjetaCatalogo.innerHTML = catalogoHTML;
+        botonesCatalogo();
+      };
+      mostrarCatalogo();
+    }
+  })
+  .catch((err) => console.log(err));
 
 /* Creamos las cards con los productos agregados al carrito */
 const productoCarritoHTML = (item) => {
   return `
-    <div class="col col-xl-3 col-md-6 col-sm-12 py-5">
-            <div class="card color-card" style="width: 18rem">
-              <img src="/assets/images/${item.tipo}.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">${item.tipo}</h5>
-                <p class="card-text">Marca: ${item.marca}</p>
-                <p class="card-text">Modelo: ${item.modelo}</p>
-                <p class="card-text">Precio: ${item.precio}</p>
-                <p class="card-text">Cantidad: ${item.cantidad}</p>
-                <button id="btn-carrito-${item.idCompra}" class="btn btn-danger">Quitar</button>
-                <button id="btn-sumcant-${item.idCompra}" class="btn btn-danger">+</button>
-                <button id="btn-rescant-${item.idCompra}" class="btn btn-danger">-</button>
-              </div>
-            </div>
-          </div>`;
+        <div class="col col-xl-3 col-md-6 col-sm-12 py-5">
+                <div class="card color-card" style="width: 18rem">
+                  <img src="/assets/images/${item.tipo}.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">${item.tipo}</h5>
+                    <p class="card-text">Marca: ${item.marca}</p>
+                    <p class="card-text">Modelo: ${item.modelo}</p>
+                    <p class="card-text">Precio: ${item.precio}</p>
+                    <p class="card-text">Cantidad: ${item.cantidad}</p>
+                    <button id="btn-carrito-${item.idCompra}" class="btn btn-danger">Quitar</button>
+                    <button id="btn-sumcant-${item.idCompra}" class="btn btn-danger">+</button>
+                    <button id="btn-rescant-${item.idCompra}" class="btn btn-danger">-</button>
+                  </div>
+                </div>
+              </div>`;
 };
 
 /* Funcion para mostrar tabla del carrito*/
@@ -66,19 +91,6 @@ const carroSuperiorHTML = (item) => {
       <th><button id="btn-carritoSup-${item.idCompra}" class="btn btn-danger">X</button></th>
       <th></th>
     </tr>`;
-};
-
-/* Funcion que nos permite mostrar todos los producots */
-const mostrarCatalogo = () => {
-  let tarjetaCatalogo = document.getElementById("catalogo");
-  let catalogoHTML = "";
-
-  for (let item of inventario) {
-    catalogoHTML += productoCatalogoHTML(item);
-  }
-
-  tarjetaCatalogo.innerHTML = catalogoHTML;
-  botonesCatalogo();
 };
 
 /* Funcion para mostrar elementos en el carro */
@@ -200,4 +212,4 @@ function cargarLocalCarrito() {
 
 /* Ejecucion del programa */
 cargarLocalCarrito();
-mostrarCatalogo();
+//mostrarCatalogo();

@@ -1,0 +1,70 @@
+[
+  {
+    "inventario": [
+      {
+        "id": 1,
+        "tipo": "Monitor",
+        "marca": "Samsung",
+        "modelo": "Modelo1",
+        "precio": 57000,
+        "cantidad": 1
+      },
+      {
+        "id": 2,
+        "tipo": "Monitor",
+        "marca": "Samsung",
+        "modelo": "Modelo1",
+        "precio": 57000,
+        "cantidad": 1
+      },
+      {
+        "id": 3,
+        "tipo": "Monitor",
+        "marca": "Samsung",
+        "modelo": "Modelo1",
+        "precio": 57000,
+        "cantidad": 1
+      },
+      {
+        "id": 4,
+        "tipo": "Monitor",
+        "marca": "Samsung",
+        "modelo": "Modelo1",
+        "precio": 57000,
+        "cantidad": 1
+      },
+      {
+        "id": 5,
+        "tipo": "Monitor",
+        "marca": "Samsung",
+        "modelo": "Modelo1",
+        "precio": 57000,
+        "cantidad": 1
+      },
+      {
+        "id": 6,
+        "tipo": "Monitor",
+        "marca": "Samsung",
+        "modelo": "Modelo1",
+        "precio": 57000,
+        "cantidad": 1
+      },
+      {
+        "id": 7,
+        "tipo": "Monitor",
+        "marca": "Samsung",
+        "modelo": "Modelo1",
+        "precio": 57000,
+        "cantidad": 1
+      },
+      {
+        "id": 8,
+        "tipo": "Monitor",
+        "marca": "Samsung",
+        "modelo": "Modelo1",
+        "precio": 57000,
+        "cantidad": 1
+      }
+    ]
+  }
+]
