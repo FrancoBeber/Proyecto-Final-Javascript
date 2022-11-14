@@ -11,58 +11,58 @@
       },
       {
         "id": 2,
-        "tipo": "Monitor",
-        "marca": "Samsung",
-        "modelo": "Modelo1",
-        "precio": 57000,
+        "tipo": "Placa",
+        "marca": "Gigabyte",
+        "modelo": "Geforce Gtx 1050 Ti",
+        "precio": 80000,
         "cantidad": 1
       },
       {
         "id": 3,
-        "tipo": "Monitor",
-        "marca": "Samsung",
-        "modelo": "Modelo1",
-        "precio": 57000,
+        "tipo": "Celular",
+        "marca": "Xiaomi",
+        "modelo": "Redmi Note 11 Pro",
+        "precio": 140000,
         "cantidad": 1
       },
       {
         "id": 4,
-        "tipo": "Monitor",
+        "tipo": "Microfono",
         "marca": "Samsung",
         "modelo": "Modelo1",
-        "precio": 57000,
+        "precio": 8000,
         "cantidad": 1
       },
       {
         "id": 5,
-        "tipo": "Monitor",
+        "tipo": "Silla",
         "marca": "Samsung",
         "modelo": "Modelo1",
-        "precio": 57000,
+        "precio": 60000,
         "cantidad": 1
       },
       {
         "id": 6,
-        "tipo": "Monitor",
+        "tipo": "Televisor",
         "marca": "Samsung",
         "modelo": "Modelo1",
-        "precio": 57000,
+        "precio": 120000,
         "cantidad": 1
       },
       {
         "id": 7,
-        "tipo": "Monitor",
+        "tipo": "Gabinete",
         "marca": "Samsung",
         "modelo": "Modelo1",
-        "precio": 57000,
+        "precio": 15000,
         "cantidad": 1
       },
       {
         "id": 8,
-        "tipo": "Monitor",
+        "tipo": "Auriculares",
         "marca": "Samsung",
         "modelo": "Modelo1",
-        "precio": 57000,
+        "precio": 5000,
         "cantidad": 1
       }
     ]
