@@ -28,15 +28,15 @@
       {
         "id": 4,
         "tipo": "Microfono",
-        "marca": "Samsung",
-        "modelo": "Modelo1",
-        "precio": 8000,
+        "marca": "Trust",
+        "modelo": "Emita Gxt 252",
+        "precio": 15000,
         "cantidad": 1
       },
       {
         "id": 5,
         "tipo": "Silla",
-        "marca": "Samsung",
+        "marca": "Star Vision",
         "modelo": "Modelo1",
         "precio": 60000,
         "cantidad": 1
@@ -44,8 +44,8 @@
       {
         "id": 6,
         "tipo": "Televisor",
-        "marca": "Samsung",
-        "modelo": "Modelo1",
+        "marca": "Philco",
+        "modelo": "Pld55us22api",
         "precio": 120000,
         "cantidad": 1
       },
@@ -60,9 +60,9 @@
       {
         "id": 8,
         "tipo": "Auriculares",
-        "marca": "Samsung",
-        "modelo": "Modelo1",
-        "precio": 5000,
+        "marca": "Astro",
+        "modelo": "A10",
+        "precio": 10000,
         "cantidad": 1
       }
     ]
