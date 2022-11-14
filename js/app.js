@@ -27,7 +27,7 @@ fetch("api/catalogo.json")
         return `
     <div class="col col-xl-3 col-md-6 col-sm-12 py-5">
             <div class="card color-card" style="width: 18rem">
-              <img src="/assets/images/${item.tipo}.png" class="card-img-top" alt="..." />
+              <img src="/assets/images/${item.tipo}.png" class="card-img-top img-card" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">${item.tipo}</h5>
                 <p class="card-text">Marca: ${item.marca}</p>
